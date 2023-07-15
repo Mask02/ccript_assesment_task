@@ -1,6 +1,6 @@
 const TodoModule = require("../models/ToDo");
 
-module.exports.getToDo = async (res) => {
+module.exports.getToDo = async (req, res) => {
   const toDo = await TodoModule.find();
   res.send(toDo);
 };
@@ -10,7 +10,7 @@ module.exports.saveToDo = async (req, res) => {
 
   await TodoModule.create({ text })
     .then((data) => {
-      res.send(data);
+      res.send("Todo Created Successfully");
     })
     .catch((err) => {
       console.log(err);

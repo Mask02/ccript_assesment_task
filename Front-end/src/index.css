@@ -9,15 +9,22 @@ body {
   backdrop-filter: blur(2px);
 }
 
-.main-container {
-  border: 1px solid red;
-}
 .todo-container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   background-color: white;
   border: none;
   border-radius: 0.5rem;
 }
+.todo_list_header {
+  background-color: #aa977a;
+  opacity: 90%;
+}
 button {
-  background-color: #d9977d;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-right: 0.3rem;
+  border-radius: 0.5rem;
+  background-color: #bbb18c;
+  align-items: center;
 }
