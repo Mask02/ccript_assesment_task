@@ -73,7 +73,7 @@ export default function SignUp() {
           <Typography color="gray" className="mt-4 text-center font-normal">
             Already have an account?{" "}
             <a
-              href="signin"
+              href="/login"
               className=" font-semibold text-brown-700 transition-colors hover:text-brown-900"
             >
               Sign In
