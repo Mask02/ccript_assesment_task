@@ -21,7 +21,7 @@ Following is the complete procedure to setup and run this project on your local 
 
 Clone Todo App in any project dirctory.
 
-            git clone 
+            git clone https://github.com/Mask02/ccript_assesment_task.git
 
 
 ### Prerequisites
@@ -41,5 +41,5 @@ Navigate to backend directory and run following command and keep it running:
         npm start
 This will run This Todo App on localhost. Now you can access Todo using url given in your command line.
 
-#Important Note:
-    In your front end/pages home.jsx change baseUrl to your server localhost link.
+### Important Note:
+    In your FrontEnd/pages/home.jsx change baseUrl to your server localhost link.
