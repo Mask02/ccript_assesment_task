@@ -8,7 +8,8 @@ import axios from "axios";
 export default function Home() {
   const [todoItems, setTodoItems] = useState([]);
   const [text, setText] = useState("");
-  const baseUrl = "http://localhost:3000/";
+  // const baseUrl = "http://localhost:3000/";
+  const baseUrl = "https://todo-api-fawn.vercel.app/";
 
   // Add Todo
   const addTodo = () => {

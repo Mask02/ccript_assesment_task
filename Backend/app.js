@@ -27,3 +27,5 @@ app.use(routes);
 app.listen(port, () => {
   console.log(`TODO APP started on ${port}`);
 });
+
+module.exports = app;

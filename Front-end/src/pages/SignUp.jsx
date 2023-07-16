@@ -8,8 +8,8 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const baseUrl = "http://localhost:3000/";
-
+  // const baseUrl = "http://localhost:3000/";
+  const baseUrl = "https://todo-api-fawn.vercel.app/";
   //  SIGN UP FUNCTION
   const signUp = async (e) => {
     e.preventDefault();
