@@ -11,7 +11,7 @@ module.exports.addToDo = async (req, res) => {
   const status = false;
   await TodoModule.create({ text, currentDate, status })
     .then((data) => {
-      console.log(data);
+      console.log("Todo Added");
       res.json(data);
     })
     .catch((err) => {
@@ -30,9 +30,9 @@ module.exports.setToDoStatus = async (req, res) => {
 };
 module.exports.deleteToDo = async (req, res) => {
   const { id } = req.body;
-  console.log(id);
   await TodoModule.findByIdAndDelete(id)
     .then(() => {
+      console.log("Todo Deleted");
       res.send("Deleted Successfully");
     })
     .catch((err) => {
