@@ -7,6 +7,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import Logout from "./pages/logout";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route element={<Home />} path="/" exact />
         </Route>
-        <Route path="signin" element={<SignIn />} />
-        <Route path="signup" element={<SignUp />} />
+        <Route path="login" element={<SignIn />} />
+        <Route path="register" element={<SignUp />} />
+        <Route path="logout" element={<Logout />} />
         <Route path="*" element={<Navigate to="/404" />} />
         <Route path="/404" element={<NotFound />} />
       </Routes>

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import PlusIcon from "../assets/icons/PlusIcon";
-
 import profileIcon from "../assets/images/profile.jpg";
-
 import Todo from "../components/Todo";
 import axios from "axios";
 
@@ -17,6 +15,7 @@ export default function Home() {
     axios
       .post(`${baseUrl}add`, { text })
       .then(() => {
+        toast.success("Task Added");
         setText(" ");
         getAllTodos();
       })
@@ -30,6 +29,7 @@ export default function Home() {
     axios
       .post(`${baseUrl}delete`, { id })
       .then(() => {
+        toast.success("Todo Deleted");
         getAllTodos();
       })
       .catch((err) => {

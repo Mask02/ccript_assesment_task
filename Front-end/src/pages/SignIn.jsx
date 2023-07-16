@@ -20,9 +20,9 @@ export default function SignIn() {
         axios.post(`${baseUrl}signin`, { email, password }).then((data) => {
           if (data.data.email === email) {
             if (data.data.password === password) {
-              // toast.loading("Logging In");
-              localStorage.setItem("auth", "true");
+              localStorage.setItem("user", "test");
               nav("/");
+              console.log("redirected");
               setEmail("");
               setPassword("");
             } else {
@@ -79,7 +79,7 @@ export default function SignIn() {
           </div>
 
           <Button color="brown" fullWidth onClick={signIn}>
-            Register
+            Sign In
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
             Don't have an account?{"  "}
