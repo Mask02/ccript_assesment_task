@@ -6,7 +6,10 @@ body {
   background: url(../src/assets/images/image.webp);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   backdrop-filter: blur(2px);
+  scroll-behavior: smooth;
 }
 
 .todo-container {
@@ -19,6 +22,18 @@ body {
   background-color: #aa977a;
   opacity: 90%;
 }
+.todo_list_container {
+  min-height: 13rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.1rem;
+  margin-top: 1rem;
+  background-color: white;
+  opacity: 80%;
+}
 button {
   display: flex;
   flex-direction: row;
@@ -27,4 +42,10 @@ button {
   border-radius: 0.5rem;
   background-color: #bbb18c;
   align-items: center;
+}
+.item-button {
+  background-color: rgba(151, 27, 27, 0.4);
+  height: 2.2rem;
+  margin-top: 0.2rem;
+  width: 21rem;
 }

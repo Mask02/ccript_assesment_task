@@ -2,21 +2,32 @@ const TodoModule = require("../models/ToDo");
 
 module.exports.getToDo = async (req, res) => {
   const toDo = await TodoModule.find();
-  res.send(toDo);
+  res.json(toDo);
 };
 
-module.exports.saveToDo = async (req, res) => {
+module.exports.addToDo = async (req, res) => {
   const { text } = req.body;
-
-  await TodoModule.create({ text })
+  const currentDate = new Date();
+  const status = false;
+  await TodoModule.create({ text, currentDate, status })
     .then((data) => {
-      res.send("Todo Created Successfully");
+      console.log(data);
+      res.json(data);
     })
     .catch((err) => {
       console.log(err);
     });
 };
-
+module.exports.setToDoStatus = async (req, res) => {
+  const { status, id } = req.body;
+  TodoModule.findByIdAndUpdate(status, id)
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 module.exports.deleteToDo = async (req, res) => {
   const { id } = req.body;
 
