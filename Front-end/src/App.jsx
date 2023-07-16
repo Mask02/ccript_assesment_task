@@ -7,7 +7,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import Logout from "./pages/logout";
+import Logout from "./pages/Logout";
 
 function App() {
   return (
