@@ -1,8 +1,40 @@
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
+import axios from "axios";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import validator from "validator";
 
 export default function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const baseUrl = "http://localhost:3000/";
+
+  //  SIGN UP FUNCTION
+  const signUp = async (e) => {
+    e.preventDefault();
+    if (validator.isEmail(email)) {
+      if (password.length >= 8) {
+        axios.post(`${baseUrl}signup`, { email, password }).then((data) => {
+          if (data.data === "notexist") {
+            toast.success("Your account created successfully.");
+            setEmail("");
+            setPassword("");
+          } else {
+            toast.error("Email Already in use");
+          }
+        });
+      } else {
+        toast.error("Please Enter 8 character long password");
+      }
+    } else {
+      toast.error("Please Enter a valid email");
+    }
+  };
+
   return (
     <div className="flex p-20 justify-center">
+      <Toaster />
       <Card color="transparent" shadow={false}>
         <Typography variant="h4" color="blue-gray">
           Sign Up
@@ -12,18 +44,30 @@ export default function SignUp() {
         </Typography>
         <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
           <div className="mb-4 flex flex-col gap-6">
-            <Input size="lg" label="Name" color="brown" />
-            <Input size="lg" label="Email" color="brown" required />
+            <Input
+              size="lg"
+              label="Email"
+              color="brown"
+              required
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
             <Input
               type="password"
               size="lg"
               label="Password"
               color="brown"
               required
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
           </div>
 
-          <Button color="brown" fullWidth>
+          <Button color="brown" fullWidth onClick={signUp}>
             Register
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
@@ -37,7 +81,6 @@ export default function SignUp() {
           </Typography>
         </form>
       </Card>
-      .
     </div>
   );
 }

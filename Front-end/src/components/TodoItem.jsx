@@ -3,7 +3,7 @@ import { useState } from "react";
 import CheckCircleIcon from "../assets/icons/CheckCircleIcon";
 import DotIcon from "../assets/icons/DotIcon";
 
-const TodoItem = ({ text, date, deleteTodo }) => {
+const TodoItem = ({ id, text, date, deleteTodo }) => {
   const [isActive, setIsActive] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const handleClick = () => {
@@ -39,7 +39,9 @@ const TodoItem = ({ text, date, deleteTodo }) => {
             <span>Created At:{date}</span>
           </div>
           <button
-            onClick={deleteTodo}
+            onClick={() => {
+              deleteTodo(id);
+            }}
             type="button"
             className="item-button inline-block rounded   text-xs  leading-normal text-red-800"
           >

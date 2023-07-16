@@ -30,7 +30,7 @@ module.exports.setToDoStatus = async (req, res) => {
 };
 module.exports.deleteToDo = async (req, res) => {
   const { id } = req.body;
-
+  console.log(id);
   await TodoModule.findByIdAndDelete(id)
     .then(() => {
       res.send("Deleted Successfully");

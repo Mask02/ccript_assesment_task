@@ -1,11 +1,51 @@
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
+import validator from "validator";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
-  const [email, setEmail] = useState(" ");
-  const [password, setPassword] = useState(" ");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const nav = useNavigate();
+  const baseUrl = "http://localhost:3000/";
+
+  // SIGN IN FUNCTION
+  const signIn = async (e) => {
+    e.preventDefault();
+    if (validator.isEmail(email)) {
+      if (password.length >= 8) {
+        axios.post(`${baseUrl}signin`, { email, password }).then((data) => {
+          if (data.data.email === email) {
+            if (data.data.password === password) {
+              // toast.loading("Logging In");
+              localStorage.setItem("auth", "true");
+              nav("/");
+              setEmail("");
+              setPassword("");
+            } else {
+              toast.error("Entered Wrong Password.");
+            }
+          } else {
+            toast.error("Entered Wrong Email.");
+            toast.error("No account found on that Email");
+          }
+        });
+      } else {
+        toast.error(
+          "Please Enter your 8 or more than 8 character long password"
+        );
+      }
+    } else {
+      toast.error("Please Enter a valid email");
+    }
+  };
+
   return (
     <div className="flex p-20 justify-center">
+      <Toaster />
       <Card color="transparent" shadow={false}>
         <Typography variant="h4" color="blue-gray">
           Sign In
@@ -23,6 +63,7 @@ export default function SignIn() {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
+              value={email}
             />
             <Input
               type="password"
@@ -33,10 +74,11 @@ export default function SignIn() {
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
+              value={password}
             />
           </div>
 
-          <Button color="brown" fullWidth>
+          <Button color="brown" fullWidth onClick={signIn}>
             Register
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
