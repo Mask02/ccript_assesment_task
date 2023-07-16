@@ -17,7 +17,7 @@ function App() {
           <Route element={<Home />} path="/" exact />
         </Route>
         <Route path="login" element={<SignIn />} />
-        <Route path="register" element={<SignUp />} />
+        <Route path="signup" element={<SignUp />} />
         <Route path="logout" element={<Logout />} />
         <Route path="*" element={<Navigate to="/404" />} />
         <Route path="/404" element={<NotFound />} />
