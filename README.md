@@ -30,7 +30,7 @@ Clone Todo App in any project dirctory.
 
 ### Prerequisites
 
-You should have following in your Front end and Backend Folder Separetely:
+You should have to run following command in your Front end and Backend Folder Separetely:
 
         
               npm install
@@ -40,9 +40,11 @@ You should have following in your Front end and Backend Folder Separetely:
 Navigate to Front end directory and run following command and keep it running:
 
         npm run dev
+        
 Navigate to backend directory and run following command and keep it running:
 
         npm start
+        
 This will run This Todo App on localhost. Now you can access Todo using url given in your command line.
 
 ### Important Note:
