@@ -3,7 +3,7 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import validator from "validator";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -84,9 +84,9 @@ export default function SignIn() {
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
             Don't have an account?{"  "}
-            <a href="/signup" className=" font-semibold text-brown-700 ">
+            <Link to="/signup" className=" font-semibold text-brown-700 ">
               Sign Up
-            </a>
+            </Link>
           </Typography>
         </form>
       </Card>

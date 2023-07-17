@@ -2,6 +2,7 @@ import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import axios from "axios";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 import validator from "validator";
 
 export default function SignUp() {
@@ -72,12 +73,12 @@ export default function SignUp() {
           </Button>
           <Typography color="gray" className="mt-4 text-center font-normal">
             Already have an account?{" "}
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className=" font-semibold text-brown-700 transition-colors hover:text-brown-900"
             >
               Sign In
-            </a>
+            </Link>
           </Typography>
         </form>
       </Card>
