@@ -4,12 +4,21 @@ import PlusIcon from "../assets/icons/PlusIcon";
 import profileIcon from "../assets/images/profile.jpg";
 import Todo from "../components/Todo";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [todoItems, setTodoItems] = useState([]);
   const [text, setText] = useState("");
+  const nav = useNavigate;
   // const baseUrl = "http://localhost:3000/";
   const baseUrl = "https://todo-api-fawn.vercel.app/";
+
+  // Logout
+
+  const logOutFunction = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
 
   // Add Todo
   const addTodo = () => {
@@ -56,8 +65,14 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-16">
+    <div className="flex min-h-screen flex-col items-center justify-between p-10 ">
       <Toaster />
+      <div className="flex w-full justify-end text-white">
+        <button className=" w-24 h-11" onClick={logOutFunction}>
+          logout
+        </button>
+      </div>
+
       <div className=" main-container flex flex-col items-center justify-between  p-2">
         <div className=" image-container border-8 border-white/50 rounded-full w-24 h-24 overflow-hidden">
           <img className=" object-cover w-full h-full" src={profileIcon} />
