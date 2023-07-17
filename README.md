@@ -13,6 +13,10 @@ A ToDo web application built using React js and Express js that enables users to
 
 Todo's  primary features rely on React and Express Js.
 
+Deployed Link
+          https://ccript-assesment-task.vercel.app
+
+
 ## Environment Setup
 
 Following is the complete procedure to setup and run this project on your local environment.
